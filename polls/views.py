@@ -6,8 +6,8 @@ def toLogin_view(request):
     return render(request, 'login.html')
 
 def Login_view(request):
-    user = request.GET.get("user", '')
-    pwd = request.GET.get("pwd", '')
+    user = request.POST.get("user", '')
+    pwd = request.POST.get("pwd", '')
     if user=="Andy Xia" and pwd=="andy123":
         return HttpResponse("登陆成功")
     else:
