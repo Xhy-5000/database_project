@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body>
+<p>这里是注册界面</p>
+<form action="../register/" method="post">
+    {% csrf_token %}
+    <p><label>用户名：</label><input name="user"/></p>
+    <p><label>密码：</label><input name="pwd"/></p>
+    <p><label>确认密码：</label><input name="confirm_pwd"/></p>
+    <p><label>学号：</label><input name="id"/></p>
+    <p><label>邮箱：</label><input name="email"/></p>
+    <p><label>本学期所修课程编号（中间用逗号分隔，不要加空格如：csc1001,csc1002,csc3002）：</label><input name="course"/></p>
+    <input type="submit" value="确认注册">
+</form>
+</body>
+</html>

@@ -27,15 +27,16 @@ def register_view(request):
     pwd = request.POST.get("pwd", '')
     confirm_pwd = request.POST.get("confirm_pwd", '')
     email = request.POST.get("email", '')
+    stu_id = request.POST.get("id", '')
     course = request.POST.get("course", '')
-    if user and pwd and confirm_pwd and email and course:
+    if user and pwd and confirm_pwd and email and id and course:
         c = StudentInfo.objects.filter(stu_name=user).count()
         if c:
             return HttpResponse("用户名已存在")
         elif pwd != confirm_pwd:
             return HttpResponse("密码不一致")
         else:
-            stu = StudentInfo(stu_id=id,stu_name=user,stu_pwd=pwd,stu_email=email,stu_course=course)
+            stu = StudentInfo(stu_id=stu_id,stu_name=user,stu_pwd=pwd,stu_email=email,stu_course=course)
             stu.save()
             return HttpResponse("注册成功")
     else:
