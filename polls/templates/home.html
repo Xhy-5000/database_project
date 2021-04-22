@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Home</title>
+</head>
+<!-- Bootstrap core CSS-->
+    <link href="/static/info/bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="/static/info/bootstrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template-->
+    <link href="/static/info/bootstrap/css/sb-admin.css" rel="stylesheet">
+
+  </head>
+
+  <body class="bg-dark">
+
+    <div class="container">
+      <div class="card card-login mx-auto mt-5">
+        <div class="card-header">Wellcome to the student management system</div>
+        <div class="card-body">
+            <form action="tologin/" method="post">
+              <input type="hidden" name="csrfmiddlewaretoken" value="fUwmJPVC3SLe7M0NtaOgJFXK0iysPCTfYEZoHryZEGhTPYRzKP8FSPcjzg5axanc">
+                <a href="http://www.baidu.com/">
+                    <button class="btn btn-success">Login »</button>
+                </a>
+            </form>
+            <form action="toregister/" method="post">
+              <input type="hidden" name="csrfmiddlewaretoken" value="fUwmJPVC3SLe7M0NtaOgJFXK0iysPCTfYEZoHryZEGhTPYRzKP8FSPcjzg5axanc">
+                <a href="/polls/templates/register.html/">
+                    <button class="btn btn-success">Register »</button>
+                </a>
+            </form>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="/static/info/bootstrap/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/info/bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="/static/info/bootstrap/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  </body>
+</html>
