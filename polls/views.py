@@ -14,14 +14,17 @@ def Login_view(request):
     user = request.POST.get("user", '')
     pwd = request.POST.get("pwd", '')
     if user and pwd:
-        c = StudentInfo.objects.filter(stu_name=user,stu_pwd=pwd).count()#获取models里studentinfo类对象的值
-        if c >= 1:
-            return render(request, 'index.html')
+        c0 = StudentInfo.objects.filter(stu_name=user,stu_pwd=pwd, stu_role='0').count()#获取models里studentinfo类对象的值
+        c1 = StudentInfo.objects.filter(stu_name=user, stu_pwd=pwd, stu_role='1').count()
+        if c0 >= 1:
+            return render(request, 'studentindex.html')
+        elif c1 >= 1:
+            return render(request, 'teacherindex.html')
         else:
-            messages.success(request, "用户名或密码错误")
+            messages.success(request, "Something wrong with your username or password")
             return render(request, 'login.html')
     else:
-        messages.success(request, "用户名或密码为空")
+        messages.success(request, "Username or password missing")
         return render(request, 'login.html')
 
 
@@ -39,10 +42,10 @@ def register_view(request):
     if role and user and pwd and confirm_pwd and email and id:
         c = StudentInfo.objects.filter(stu_name=user).count()
         if c:
-            messages.success(request, "用户名已存在")
+            messages.success(request, "User name already exists")
             return render(request, 'register.html')
         elif pwd != confirm_pwd:
-            messages.success(request, "密码不一致")
+            messages.success(request, "Please confirm your password")
             return render(request, 'register.html')
         else:
             if role == "teacher":
@@ -51,8 +54,8 @@ def register_view(request):
                 stu_role = '0'
             stu = StudentInfo(stu_id=stu_id,stu_name=user,stu_pwd=pwd,stu_email=email,stu_course=course,stu_role=stu_role)
             stu.save()
-            messages.success(request, '注册成功')
+            messages.success(request, 'Success')
             return render(request, 'login.html')
     else:
-        messages.success(request, "请补全信息")
+        messages.success(request, "Lack of some information")
         return render(request, 'register.html')

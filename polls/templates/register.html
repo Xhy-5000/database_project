@@ -74,37 +74,36 @@
         <div class="card-body">
             <form action="../register/" method="post">
               <input type="hidden" name="csrfmiddlewaretoken" value="fUwmJPVC3SLe7M0NtaOgJFXK0iysPCTfYEZoHryZEGhTPYRzKP8FSPcjzg5axanc">
-                <p>注：带*为选填项</p>
                 <p>
-                    选择注册身份<br/>
+                    Choose your role:<br/>
                     <input type="radio" name="role" value="teacher">Teacher<br>
                     <input type="radio" name="role" value="student">Student
                 </p>
                 <p>
-                    <label>用户名：</label><br/>
+                    <label>Your name:</label><br/>
                     <input name="user"/>
                 </p>
                 <p>
-                    <label>密码：</label><br/>
+                    <label>Password:</label><br/>
                     <input type="password" name="pwd"/>
                 </p>
                 <p>
-                    <label>确认密码：</label><br/>
+                    <label>Confirm your password:</label><br/>
                     <input type="password" name="confirm_pwd"/>
                 </p>
                 <p>
-                    <label>学号/工号：</label><br/>
+                    <label>Student id/Job number:</label><br/>
                     <input name="id"/>
                 </p>
                 <p>
-                    <label>邮箱：</label><br/>
+                    <label>Email：</label><br/>
                     <input name="email"/>
                 </p>
                 <p>
-                    <label>*本学期所修课程编号（中间用逗号分隔，不要加空格如：csc1001,csc1002,csc3002）：</label><br/>
+                    <label>The course you take/teach this term:(use the form like this: csc1001,csc1002,csc3002)</label><br/>
                     <input name="course"/>
                 </p>
-                <input  class="btn btn-success" type="submit" value="确认注册">
+                <input  class="btn btn-success" type="submit" value="Register">
             </form>
             {% if messages %}
                 <script>
