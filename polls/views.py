@@ -36,7 +36,7 @@ def register_view(request):
     email = request.POST.get("email", '')
     stu_id = request.POST.get("id", '')
     course = request.POST.get("course", '')
-    if role and user and pwd and confirm_pwd and email and id and course:
+    if role and user and pwd and confirm_pwd and email and id:
         c = StudentInfo.objects.filter(stu_name=user).count()
         if c:
             messages.success(request, "用户名已存在")

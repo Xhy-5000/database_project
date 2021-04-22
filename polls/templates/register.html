@@ -74,6 +74,7 @@
         <div class="card-body">
             <form action="../register/" method="post">
               <input type="hidden" name="csrfmiddlewaretoken" value="fUwmJPVC3SLe7M0NtaOgJFXK0iysPCTfYEZoHryZEGhTPYRzKP8FSPcjzg5axanc">
+                <p>注：带*为选填项</p>
                 <p>
                     选择注册身份<br/>
                     <input type="radio" name="role" value="teacher">Teacher<br>
@@ -92,7 +93,7 @@
                     <input type="password" name="confirm_pwd"/>
                 </p>
                 <p>
-                    <label>学号：</label><br/>
+                    <label>学号/工号：</label><br/>
                     <input name="id"/>
                 </p>
                 <p>
@@ -100,7 +101,7 @@
                     <input name="email"/>
                 </p>
                 <p>
-                    <label>本学期所修课程编号（中间用逗号分隔，不要加空格如：csc1001,csc1002,csc3002）：</label><br/>
+                    <label>*本学期所修课程编号（中间用逗号分隔，不要加空格如：csc1001,csc1002,csc3002）：</label><br/>
                     <input name="course"/>
                 </p>
                 <input  class="btn btn-success" type="submit" value="确认注册">
