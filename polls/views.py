@@ -3,6 +3,9 @@ from django.http import HttpResponse
 from .models import *
 
 # Create your views here.
+def home_view(request):
+    return render(request, 'home.html')
+
 def toLogin_view(request):
     return render(request, 'login.html')
 

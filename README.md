@@ -1,7 +1,7 @@
 Database_project
 ====
 A student manage system base on django and mysql.
-
+This project is done by five students in CUHKSZ.
 ## Installation
 
 Python and Django need to be installed
