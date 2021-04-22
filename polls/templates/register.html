@@ -105,7 +105,13 @@
                 </p>
                 <input  class="btn btn-success" type="submit" value="确认注册">
             </form>
-
+            {% if messages %}
+                <script>
+                    {% for msg in messages %}
+                        alert('{{ msg.message }}');
+                    {% endfor %}
+                </script>
+            {% endif %}
         </div>
       </div>
     </div>
