@@ -9,7 +9,7 @@
 <form action="index/" method="post">
     {% csrf_token %}
     <p><label>用户名：</label><input name="user"/></p>
-    <p><label>密码：</label><input name="pwd"/></p>
+    <p><label>密码：</label><input type="password" name="pwd"/></p>
     <input type="submit" value="提交">
 </form>
 </body>
