@@ -1,45 +1,3 @@
-{#<!DOCTYPE html>#}
-{#<html lang="en">#}
-{#<head>#}
-{#    <meta charset="UTF-8">#}
-{#    <title>注册</title>#}
-{#</head>#}
-{#<body>#}
-{#<p>这里是注册界面</p>#}
-{#<form action="../register/" method="post">#}
-{#    {% csrf_token %}#}
-{#    <p>#}
-{#        选择注册身份<br/>#}
-{#    </p>#}
-{#    <p>#}
-{#        <label>用户名：</label><br/>#}
-{#        <input name="user"/>#}
-{#    </p>#}
-{#    <p>#}
-{#        <label>密码：</label><br/>#}
-{#        <input type="password" name="pwd"/>#}
-{#    </p>#}
-{#    <p>#}
-{#        <label>确认密码：</label><br/>#}
-{#        <input type="password" name="confirm_pwd"/>#}
-{#    </p>#}
-{#    <p>#}
-{#        <label>学号：</label><br/>#}
-{#        <input name="id"/>#}
-{#    </p>#}
-{#    <p>#}
-{#        <label>邮箱：</label><br/>#}
-{#        <input name="email"/>#}
-{#    </p>#}
-{#    <p>#}
-{#        <label>本学期所修课程编号（中间用逗号分隔，不要加空格如：csc1001,csc1002,csc3002）：</label><br/>#}
-{#        <input name="course"/>#}
-{#    </p>#}
-{#    <input type="submit" value="确认注册">#}
-{#</form>#}
-{#</body>#}
-{#</html>#}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -73,6 +31,7 @@
         <div class="card-header">Register</div>
         <div class="card-body">
             <form action="../register/" method="post">
+{#                {% csrf_token %}#}
               <input type="hidden" name="csrfmiddlewaretoken" value="fUwmJPVC3SLe7M0NtaOgJFXK0iysPCTfYEZoHryZEGhTPYRzKP8FSPcjzg5axanc">
                 <p>
                     Choose your role:<br/>

@@ -31,6 +31,7 @@
         <div class="card-header">Login</div>
         <div class="card-body">
             <form action="../index/" method="post">
+{#                {% csrf_token %}#}
               <input type="hidden" name="csrfmiddlewaretoken" value="fUwmJPVC3SLe7M0NtaOgJFXK0iysPCTfYEZoHryZEGhTPYRzKP8FSPcjzg5axanc">
               <p>
                   <label for="id_username">Username:</label> <input type="text" name="user" >

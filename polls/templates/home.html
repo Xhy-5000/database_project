@@ -23,6 +23,7 @@
         <div class="card-header">Wellcome to the student management system</div>
         <div class="card-body">
             <form action="tologin/" method="post">
+{#                {% csrf_token %}#}
               <input type="hidden" name="csrfmiddlewaretoken" value="fUwmJPVC3SLe7M0NtaOgJFXK0iysPCTfYEZoHryZEGhTPYRzKP8FSPcjzg5axanc">
                 <p>Already have an account?</p>
                 <a href="http://www.baidu.com/">
@@ -31,6 +32,7 @@
             </form>
             </br>
             <form action="toregister/" method="post">
+{#                {% csrf_token %}#}
               <input type="hidden" name="csrfmiddlewaretoken" value="fUwmJPVC3SLe7M0NtaOgJFXK0iysPCTfYEZoHryZEGhTPYRzKP8FSPcjzg5axanc">
                 <p>Do not have an account?</p>
                 <a href="/polls/templates/register.html/">
