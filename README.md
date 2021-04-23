@@ -13,7 +13,9 @@ pip install pymysql
 
 ## Initialize Database
 
-1. Open your mysql work bench and run init_db.sql
+1. Open your mysql work bench and run init_db.sql 
+(you can run the test.sql to ensure the data has already been inserted)
+![code_image](./polls/images/2.png)
 2. Find the settings.py in mysite dictionary, change the mysql username and password into yours'
 ![code_image](./polls/images/1.png)
 
@@ -44,3 +46,16 @@ teacher
 > * Donald Trump
 > * Borris Johnson
 
+## Presentation
+#### Home Page
+![code_image](./polls/images/3.png)
+#### Register Page
+![code_image](./polls/images/4.png)
+#### Alert for different kinds of errors
+![code_image](./polls/images/5.png)
+![code_image](./polls/images/6.png)
+![code_image](./polls/images/7.png)
+#### Student Page
+![code_image](./polls/images/8.png)
+#### Teacher Page
+![code_image](./polls/images/9.png)
