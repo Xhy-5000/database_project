@@ -2,9 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>教师界面</title>
+    <title>Teacher Page</title>
+    <style>
+        .pg-header{
+            height: 48px;
+            position: absolute;
+            min-width: 1190px;
+            top: 0;
+            left: 0;
+            background-color: #868e96;
+        }
+        .pg-menu{
+            width: 200px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            top: 48px;
+            background-color: #c8cbcf;
+        }
+        .pg-content{
+            min-width: 990px;
+            position: absolute;
+            left: 200px;
+            bottom: 0;
+            top: 48px;
+            overflow: scroll;
+        }
+    </style>
 </head>
 <body>
-<p>这是一个学生管理系统的教师界面</p>
+<div class="pg-header">
+{#    {% student = StudentInfo.objects.filter(stu_name=request.session['username']) %}#}
+    Welcome, {{ teacher.stu_name }} !
+</div>
+<div class="body">
+    <div class="pg-menu">
+        menu
+    </div>
+    <div class="pg-content">
+        <p>
+            Your email is {{ teacher.stu_email }}<br>
+            Your teacher id is {{ teacher.stu_id }}<br>
+            Your course(s) this term is/are {{ teacher.stu_course }}<br>
+        </p>
+    </div>
+</div>
 </body>
 </html>

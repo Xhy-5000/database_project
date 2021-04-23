@@ -2,11 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>学生界面</title>
+    <title>Student Page</title>
+    <style>
+        .pg-header{
+            height: 48px;
+            position: absolute;
+            min-width: 1190px;
+            top: 0;
+            left: 0;
+            background-color: #868e96;
+        }
+        .pg-menu{
+            width: 200px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            top: 48px;
+            background-color: #c8cbcf;
+        }
+        .pg-content{
+            min-width: 990px;
+            position: absolute;
+            left: 200px;
+            bottom: 0;
+            top: 48px;
+            overflow: scroll;
+        }
+    </style>
 </head>
 <body>
-<form action="index/" method="post">
-    <p>这是一个学生管理系统的学生界面</p>
-</form>
+<div class="pg-header">
+{#    {% student = StudentInfo.objects.filter(stu_name=request.session['username']) %}#}
+    Welcome, {{ student.stu_name }} !
+</div>
+<div class="body">
+    <div class="pg-menu">
+        menu
+    </div>
+    <div class="pg-content">
+        <p>
+            Your email is {{ student.stu_email }}<br>
+            Your student id is {{ student.stu_id }}<br>
+            Your course(s) this term is/are {{ student.stu_course }}<br>
+        </p>
+
+
+
+    </div>
+</div>
+
+{#<form action="index/" method="post">#}
+{#    <p>这是一个学生管理系统的学生界面</p>#}
+{#</form>#}
 </body>
 </html>

@@ -10,6 +10,10 @@ def home_view(request):
 def toLogin_view(request):
     return render(request, 'login.html')
 
+def Stu_view(request):
+    student = request.user
+    return render(request, 'studentindex.html',context={'student': student})
+
 def Login_view(request):
     user = request.POST.get("user", '')
     pwd = request.POST.get("pwd", '')
@@ -17,9 +21,15 @@ def Login_view(request):
         c0 = StudentInfo.objects.filter(stu_name=user,stu_pwd=pwd, stu_role='0').count()#获取models里studentinfo类对象的值
         c1 = StudentInfo.objects.filter(stu_name=user, stu_pwd=pwd, stu_role='1').count()
         if c0 >= 1:
-            return render(request, 'studentindex.html')
+            for student in StudentInfo.objects.all():
+                if student.stu_name == user:
+                    break
+            return render(request, 'studentindex.html', {'student': student})
         elif c1 >= 1:
-            return render(request, 'teacherindex.html')
+            for student in StudentInfo.objects.all():
+                if student.stu_name == user:
+                    break
+            return render(request, 'teacherindex.html', {'teacher': student})
         else:
             messages.success(request, "Something wrong with your username or password")
             return render(request, 'login.html')
