@@ -13,8 +13,7 @@ pip install pymysql
 
 ## Initialize Database
 
-1. Open your mysql work bench and run following .sql files in order:
-createdb.sql, createtable.sql, init_insert.sql
+1. Open your mysql work bench and run init_db.sql
 2. Find the settings.py in mysite dictionary, change the mysql username and password into yours'
 ![code_image](./polls/images/1.png)
 
