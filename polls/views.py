@@ -11,10 +11,6 @@ def toLogin_view(request):
     link = '../index/'
     return render(request, 'login.html', {'link':link})
 
-# def Stu_view(request):
-#     student = request.user
-#     return render(request, 'studentindex.html',context={'student': student})
-
 def Login_view(request):
     user = request.POST.get("user", '')
     pwd = request.POST.get("pwd", '')
@@ -27,7 +23,8 @@ def Login_view(request):
                 if student.stu_name == user:
                     break
             link = link + user + '/'
-            return render(request, 'studentindex0.html', context={'student': student, 'link':link})
+            add_and_drop_link = './' + user + '/add_and_drop/'
+            return render(request, 'studentindex0.html', context={'student': student, 'link':link, 'add_and_drop_link':add_and_drop_link})
         elif c1 >= 1:
             for student in StudentInfo.objects.all():
                 if student.stu_name == user:
@@ -112,6 +109,16 @@ def index_view(request, link):
     else:
         return render(request, 'studentindex.html', context={'student': student, 'link':link})
 
+def add_and_drop_view(request, user_name):
+    for user in StudentInfo.objects.all():
+        if user.stu_name == user_name:
+            break
+    courses_ids = user.stu_course.split(',')
+    courses = []
+    for course in CourseInfo.objects.all():
+        if course.course_id in courses_ids:
+            courses.append(course)
+    return render(request, 'add_and_drop.html', context={'user':user, 'courses':courses})
 
 
 

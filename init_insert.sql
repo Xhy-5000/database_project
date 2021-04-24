@@ -38,7 +38,8 @@ INSERT INTO `stu_info`.`polls_studentinfo` (`stu_id`, `stu_name`, `stu_pwd`, `st
 select * from polls_studentinfo;
 
 use stu_info;
-create table polls_courseinfo(course_id varchar(20), #id csc3170
+create table polls_courseinfo(
+    course_id varchar(20),                         #id csc3170
 	course_name varchar(50),                         #name database design
     course_instructor varchar(20),   
     course_description varchar(1000)

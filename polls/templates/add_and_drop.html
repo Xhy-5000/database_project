@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add & Drop</title>
+</head>
+<body>
+<p>
+    here is the add and drop page for {{ user.stu_name }}
+</p>
+<p>
+    here is your course list:<br>
+    {{ user.stu_course }}
+</p>
+<table border="1">
+    <thead>
+    <tr>
+        <th>course_id</th>
+        <th>course_name</th>
+        <th>course_instructor</th>
+        <th>course_description</th>
+    </tr>
+    </thead>
+    {% for course in courses %}
+    <tr>
+        <td>{{ course.course_id }}</td>
+        <td>{{ course.course_name }}</td>
+        <td>{{ course.course_instructor }}</td>
+        <td>{{ course.course_description }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
