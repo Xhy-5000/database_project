@@ -33,7 +33,7 @@
 <body>
 <div class="pg-header">
 {#    {% student = StudentInfo.objects.filter(stu_name=request.session['username']) %}#}
-    Welcome, {{ teacher.stu_name }} !
+    Welcome, {{ teacher.stu_name }}, link = {{ link }}, role ={{ teacher.stu_role }} !
 </div>
 <div class="body">
     <div class="pg-menu">

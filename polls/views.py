@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.db import connection
 from django.contrib import messages
 from .models import *
 
@@ -8,7 +8,8 @@ def home_view(request):
     return render(request, 'home.html')
 
 def toLogin_view(request):
-    return render(request, 'login.html')
+    link = '../index/'
+    return render(request, 'login.html', {'link':link})
 
 def Stu_view(request):
     student = request.user
@@ -17,6 +18,7 @@ def Stu_view(request):
 def Login_view(request):
     user = request.POST.get("user", '')
     pwd = request.POST.get("pwd", '')
+    link = "../torewriteinfo/"
     if user and pwd:
         c0 = StudentInfo.objects.filter(stu_name=user,stu_pwd=pwd, stu_role='0').count()#获取models里studentinfo类对象的值
         c1 = StudentInfo.objects.filter(stu_name=user, stu_pwd=pwd, stu_role='1').count()
@@ -24,19 +26,20 @@ def Login_view(request):
             for student in StudentInfo.objects.all():
                 if student.stu_name == user:
                     break
-            return render(request, 'studentindex.html', {'student': student})
+            link = link + user + '/'
+            return render(request, 'studentindex0.html', context={'student': student, 'link':link})
         elif c1 >= 1:
             for student in StudentInfo.objects.all():
                 if student.stu_name == user:
                     break
-            return render(request, 'teacherindex.html', {'teacher': student})
+            link = link + user
+            return render(request, 'teacherindex.html', context={'teacher': student, 'link':link})
         else:
             messages.success(request, "Something wrong with your username or password")
             return render(request, 'login.html')
     else:
         messages.success(request, "Username or password missing")
         return render(request, 'login.html')
-
 
 def toregister_view(request):
     return render(request, 'register.html')
@@ -49,7 +52,7 @@ def register_view(request):
     email = request.POST.get("email", '')
     stu_id = request.POST.get("id", '')
     course = request.POST.get("course", '')
-    if role and user and pwd and confirm_pwd and email and id:
+    if role and user and pwd and confirm_pwd and email and id and course:
         c = StudentInfo.objects.filter(stu_name=user).count()
         if c:
             messages.success(request, "User name already exists")
@@ -64,8 +67,54 @@ def register_view(request):
                 stu_role = '0'
             stu = StudentInfo(stu_id=stu_id,stu_name=user,stu_pwd=pwd,stu_email=email,stu_course=course,stu_role=stu_role)
             stu.save()
-            messages.success(request, 'Success')
+            # messages.success(request, 'Success')
             return render(request, 'login.html')
     else:
-        messages.success(request, "Lack of some information")
+        # messages.success(request, "Lack of some information")
         return render(request, 'register.html')
+
+def toRewrite_view(request, link):
+    link = '../../rewriteinfo/' + link + '/'
+    return render(request, 'rewriteinfo.html', context= {'link':link})
+
+def Rewrite_view(request, link):
+    for student in StudentInfo.objects.all():
+        if student.stu_name == link:
+            break
+    link = '../../index/' + link + '/'
+    email = request.POST.get("email", '')
+    stu_id = request.POST.get("id", '')
+    if stu_id and email:
+        stu_name = student.stu_name
+        pwd = student.stu_pwd
+        course = student.stu_course
+        role = student.stu_role
+        StudentInfo.objects.get(stu_name=stu_name).delete()
+        stu = StudentInfo(stu_id=stu_id, stu_name=stu_name, stu_pwd=pwd, stu_email=email, stu_role=role,
+                          stu_course=course)
+        stu.save()
+        # messages.success(request, "Success")
+        if stu.stu_role == '0':
+            return render(request, 'studentindex.html', context={'student': stu, 'link': link})
+        elif stu.stu_role == '1':
+            return render(request, 'teacherindex.html', context={'teacher': stu, 'link': link})
+    else:
+        messages.success(request, "Lack of some information")
+        return render(request, 'rewriteinfo.html', context= {'link':link})
+
+def index_view(request, link):
+    for student in StudentInfo.objects.all():
+        if student.stu_name == link:
+            break
+    link = '../../torewriteinfo/' + link + '/'
+    if student.stu_role == 1:
+        return render(request, 'teacherindex.html', context={'teacher': student, 'link':link})
+    else:
+        return render(request, 'studentindex.html', context={'student': student, 'link':link})
+
+
+
+
+
+
+

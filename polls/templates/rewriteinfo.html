@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Login</title>
+    <title>Rewrite Information</title>
 
 
 
@@ -28,26 +28,27 @@
 
     <div class="container">
       <div class="card card-login mx-auto mt-5">
-        <div class="card-header">Login</div>
+        <div class="card-header">Rewrite Information</div>
         <div class="card-body">
-            <form  method="post" action={{ link }}>
-{#                {% csrf_token %}#}
+            <form action={{ link }} method="post">
               <input type="hidden" name="csrfmiddlewaretoken" value="fUwmJPVC3SLe7M0NtaOgJFXK0iysPCTfYEZoHryZEGhTPYRzKP8FSPcjzg5axanc">
-              <p>
-                  <label for="id_username">Username:</label> <input type="text" name="user">
-              </p>
                 <p>
-                    <label for="id_password">Password:</label> <input type="password" name="pwd">
+                    <label>New id:</label><br/>
+                    <input name="id"/>
                 </p>
-              <button  class="btn btn-success" type="submit">Login</button>
+                <p>
+                    <label>New Email：</label><br/>
+                    <input name="email"/>
+                </p>
+                <input  class="btn btn-success" type="submit" value="Confirm">
             </form>
-        {% if messages %}
-            <script>
-                {% for msg in messages %}
-                    alert('{{ msg.message }}');
-                {% endfor %}
-            </script>
-        {% endif %}
+            {% if messages %}
+                <script>
+                    {% for msg in messages %}
+                        alert('{{ msg.message }}');
+                    {% endfor %}
+                </script>
+            {% endif %}
         </div>
       </div>
     </div>
