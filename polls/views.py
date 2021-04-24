@@ -11,9 +11,9 @@ def toLogin_view(request):
     link = '../index/'
     return render(request, 'login.html', {'link':link})
 
-def Stu_view(request):
-    student = request.user
-    return render(request, 'studentindex.html',context={'student': student})
+# def Stu_view(request):
+#     student = request.user
+#     return render(request, 'studentindex.html',context={'student': student})
 
 def Login_view(request):
     user = request.POST.get("user", '')
@@ -33,7 +33,7 @@ def Login_view(request):
                 if student.stu_name == user:
                     break
             link = link + user
-            return render(request, 'teacherindex.html', context={'teacher': student, 'link':link})
+            return render(request, 'teacherindex0.html', context={'teacher': student, 'link':link})
         else:
             messages.success(request, "Something wrong with your username or password")
             return render(request, 'login.html')
