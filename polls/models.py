@@ -9,6 +9,8 @@ class StudentInfo(models.Model):
     stu_course = models.CharField(max_length=100)
     stu_role = models.CharField(max_length=1)
 
+
+
 class CourseInfo(models.Model):
     course_id = models.CharField(primary_key=True, max_length=20)
     course_name = models.CharField(max_length=50)
