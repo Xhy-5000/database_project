@@ -23,8 +23,8 @@ def Login_view(request):
                 if student.stu_name == user:
                     break
             link = link + user + '/'
-            add_and_drop_link = './' + user + '/add_and_drop/'
-            return render(request, 'studentindex0.html', context={'student': student, 'link':link, 'add_and_drop_link':add_and_drop_link})
+            drop_link = './' + user + '/drop/'
+            return render(request, 'studentindex0.html', context={'student': student, 'link':link, 'drop_link':drop_link})
         elif c1 >= 1:
             for student in StudentInfo.objects.all():
                 if student.stu_name == user:
@@ -109,7 +109,7 @@ def index_view(request, link):
     else:
         return render(request, 'studentindex.html', context={'student': student, 'link':link})
 
-def add_and_drop_view(request, user_name):
+def drop_view(request, user_name):
     for user in StudentInfo.objects.all():
         if user.stu_name == user_name:
             break
@@ -118,7 +118,7 @@ def add_and_drop_view(request, user_name):
     for course in CourseInfo.objects.all():
         if course.course_id in courses_ids:
             courses.append(course)
-    return render(request, 'add_and_drop.html', context={'user':user, 'courses':courses})
+    return render(request, 'drop.html', context={'user':user, 'courses':courses})
 
 
 
