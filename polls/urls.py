@@ -19,4 +19,6 @@ urlpatterns = [
     path('toregister/', views.toregister_view),
     path('register/', views.register_view),
     path('index/<str:user_name>/stu_showCourses/', views.stu_showCourses_view),
+    path('index/<str:user_name>/show_courses/', views.show_courses_view),
+    path('index/<str:user_name>/show_academic/', views.show_academic_view),
 ]

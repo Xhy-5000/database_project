@@ -1,0 +1,77 @@
+/* default styling. Nothing to do with freexing first row and column */
+div#main {
+
+    display: flex;
+    justify-content:center;
+
+}
+main > * {  border: 1px solid;
+            padding: 0px;
+            margin:0px;
+            justify-content: center;
+}
+table {border-collapse: collapse; font-family: helvetica}
+td, th {border:  1px solid;
+      padding: 0px;
+      margin:0px;
+      min-width: 219px;
+      background: white;
+      box-sizing: border-box;
+      text-align: center;
+}
+.table-container {
+  position: relative;
+  max-height:  300px;
+  width: 500px;
+  overflow: scroll;
+}
+
+thead th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: hsl(20, 50%, 70%);
+}
+
+thead th:first-child {
+  left: 0;
+  z-index: 3;
+}
+
+tfoot {
+  position: -webkit-sticky;
+  bottom: 0;
+  z-index: 2;
+}
+
+tfoot td {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  background: hsl(20, 50%, 70%);
+}
+
+tfoot td:first-child {
+  z-index: 3;
+}
+
+tbody {
+  overflow: scroll;
+  height: 200px;
+}
+
+/* MAKE LEFT COLUMN FIXEZ */
+tr > :first-child {
+  position: -webkit-sticky;
+  position: sticky;
+  background: hsl(180, 50%, 70%);
+  left: 0;
+}
+/* don't do this */
+tr > :first-child {
+  box-shadow: inset 0px 1px black;
+}
+
+
+

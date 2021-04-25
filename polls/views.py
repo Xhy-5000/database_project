@@ -25,14 +25,22 @@ def Login_view(request):
             link = link + user + '/'
             drop_link = './' + user + '/drop/'
             add_link = './' + user + '/add/'
-            return render(request, 'studentindex0.html', context={'student': student, 'link':link, 'drop_link':drop_link, 'add_link':add_link})
+            academic_link = './' + user + '/show_academic/'
+            courses_link = './' + user + '/show_courses/'
+            return render(request, 'studentindex0.html', context={'student': student, 'link':link,
+                                                                  'drop_link':drop_link, 'add_link':add_link,
+                                                                  'show_academic_link': academic_link,
+                                                                  'show_courses_link': courses_link
+                                                                  })
         elif c1 >= 1:
             for student in StudentInfo.objects.all():
                 if student.stu_name == user:
                     break
             link = link + user
             update_link = '../index/' + user + '/update/'
-            return render(request, 'teacherindex0.html', context={'teacher': student, 'link':link, 'update_link':update_link})
+            return render(request, 'teacherindex0.html', context={'teacher': student, 'link':link,
+                                                                  'update_link':update_link
+                 })
         else:
             messages.success(request, "Something wrong with your username or password")
             return render(request, 'login.html')
@@ -255,3 +263,27 @@ def Toupdate_view(request, user_name):
                 new_mark.save()
 
     return render(request, 'finish_update.html', context={'course':course})
+
+
+def show_academic_view(request, user_name):
+    for user in Studentmark.objects.all():
+        if user.stu_name == user_name:
+            break
+
+    cur_stu_id = user.stu_id
+    marks = []
+    for cur_row in Studentmark.objects.all():
+        if cur_row.stu_id ==  cur_stu_id:
+            marks.append(cur_row)
+    return render(request, 'show_academic.html', context={'user':user, 'courses':marks})
+
+def show_courses_view(request, user_name):
+    for user in StudentInfo.objects.all():
+        if user.stu_name == user_name:
+            break
+    courses_ids = user.stu_course.split(',')
+    courses = []
+    for course in CourseInfo.objects.all():
+        if course.course_id in courses_ids:
+            courses.append(course)
+    return render(request, 'show_courses.html', context={'user':user, 'courses':courses})
