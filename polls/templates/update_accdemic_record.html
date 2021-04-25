@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Update accdemic record</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../../../static/info/bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../../../static/info/bootstrap/css/heroic-features.css" rel="stylesheet">
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" style="color: white">Student management system</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../">Return
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<form action="../toupdate/" method="post">
+<table border="1">
+    <thead>
+    <tr style="align: center">
+        <th>student  id</th>
+        <th>student  name</th>
+        <th>grade 1</th>
+        <th>grade 2</th>
+        <th>grade 3</th>
+        <th>grade 4</th>
+        <th>grade 5</th>
+        <th>grade 6</th>
+{#        <th>operation</th>#}
+    </tr>
+    </thead>
+    {% for mark in marks %}
+    <tr>
+        <td>
+            {{ mark.stu_id }}
+        </td>
+        <td>
+            {{ mark.stu_name }}
+        </td>
+        <td>
+            <input name="{{ mark.stu_name }}a1" value={{ mark.assignment_1}}>
+        </td>
+        <td>
+            <input name="{{ mark.stu_name }}a2" value={{ mark.assignment_2 }}>
+        </td>
+        <td>
+            <input name="{{ mark.stu_name }}a3" value={{ mark.assignment_3 }}>
+        </td>
+        <td>
+            <input name="{{ mark.stu_name }}a4" value={{ mark.assignment_4}}>
+        </td>
+        <td>
+            <input name="{{ mark.stu_name }}a5" value={{ mark.assignment_5 }}>
+        </td>
+        <td>
+            <input name="{{ mark.stu_name }}a6" value={{ mark.assignment_6 }}>
+        </td>
+{#        <td><input  class="btn btn-success" type="submit" value="Confirm"></td>#}
+    </tr>
+    {% endfor %}
+</table>
+<br>
+    <div style="text-align:center">
+        <input  class="btn btn-success" type="submit" value="Confirm">
+    </div><br>
+</form>
+  {% if messages %}
+      <script>
+          {% for msg in messages %}
+              alert('{{ msg.message }}');
+          {% endfor %}
+      </script>
+  {% endif %}
+  <!-- Footer -->
+  <footer class="py-5 bg-dark fixed-bottom">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; CSC3170 project group</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../../../static/info/bootstrap/vendor/jquery/jquery.min.js"></script>
+  <script src="../../../static/info/bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

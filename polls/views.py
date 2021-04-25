@@ -23,15 +23,16 @@ def Login_view(request):
                 if student.stu_name == user:
                     break
             link = link + user + '/'
-            add_and_drop_link = './' + user + '/add_and_drop/'
-            stu_showCourses_link = './' + user + '/stu_showCourses/'
-            return render(request, 'studentindex0.html', context={'student': student, 'link':link, 'add_and_drop_link':add_and_drop_link, 'stu_showCourses_link':stu_showCourses_link})
+            drop_link = './' + user + '/drop/'
+            add_link = './' + user + '/add/'
+            return render(request, 'studentindex0.html', context={'student': student, 'link':link, 'drop_link':drop_link, 'add_link':add_link})
         elif c1 >= 1:
             for student in StudentInfo.objects.all():
                 if student.stu_name == user:
                     break
             link = link + user
-            return render(request, 'teacherindex0.html', context={'teacher': student, 'link':link})
+            update_link = '../index/' + user + '/update/'
+            return render(request, 'teacherindex0.html', context={'teacher': student, 'link':link, 'update_link':update_link})
         else:
             messages.success(request, "Something wrong with your username or password")
             return render(request, 'login.html')
@@ -105,12 +106,19 @@ def index_view(request, link):
         if student.stu_name == link:
             break
     link = '../../torewriteinfo/' + link + '/'
-    if student.stu_role == 1:
+    if student.stu_role == '1':
         return render(request, 'teacherindex.html', context={'teacher': student, 'link':link})
     else:
         return render(request, 'studentindex.html', context={'student': student, 'link':link})
 
-def add_and_drop_view(request, user_name):
+# def teacher_view(request, user_name):
+#     for student in StudentInfo.objects.all():
+#         if student.stu_name == user_name:
+#             break
+#     link = '../../torewriteinfo/' + user_name + '/'
+#     return render(request, 'teacherindex.html', context={'teacher': student, 'link': link})
+
+def drop_view(request, user_name):
     for user in StudentInfo.objects.all():
         if user.stu_name == user_name:
             break
@@ -119,7 +127,20 @@ def add_and_drop_view(request, user_name):
     for course in CourseInfo.objects.all():
         if course.course_id in courses_ids:
             courses.append(course)
-    return render(request, 'add_and_drop.html', context={'user':user, 'courses':courses})
+    return render(request, 'drop.html', context={'user':user, 'courses':courses})
+
+def add_view(request, user_name):
+
+    for user in StudentInfo.objects.all():
+        if user.stu_name == user_name:
+            break
+    courses_ids = user.stu_course.split(',')
+    courses = []
+    for course in CourseInfo.objects.all():
+        if course.course_id not in courses_ids:
+            courses.append(course)
+    return render(request, 'add.html', context={'user': user, 'courses': courses})
+
 
 def stu_showCourses_view(request, user_name):
     for user in StudentInfo.objects.all():
@@ -133,6 +154,104 @@ def stu_showCourses_view(request, user_name):
     return render(request, 'stu_showCourses.html', context={'user':user, 'courses':courses})
 
 
+def Toadd_view(request, user_name):
+    course_id = request.POST.get("course",'')
+    if course_id:
+        for user in StudentInfo.objects.all():
+            if user.stu_name == user_name:
+                break
+        stu_id = user.stu_id
+        stu_name = user.stu_name
+        pwd = user.stu_pwd
+        role = user.stu_role
+        email = user.stu_email
+        course = user.stu_course
+        StudentInfo.objects.get(stu_name=stu_name).delete()
+        new_stu_course = course + ',' + course_id
+        stu = StudentInfo(stu_id=stu_id, stu_name=stu_name, stu_pwd=pwd, stu_email=email, stu_role=role,
+                              stu_course=new_stu_course)
+        stu.save()
+    return render(request,'finish_add.html',context={'course':course_id})
 
+def Todrop_view(request, user_name):
+    course_id = request.POST.get("course",'')
+    if course_id:
+        for user in StudentInfo.objects.all():
+            if user.stu_name == user_name:
+                break
+        stu_id = user.stu_id
+        stu_name = user.stu_name
+        pwd = user.stu_pwd
+        role = user.stu_role
+        email = user.stu_email
+        course = user.stu_course
+        StudentInfo.objects.get(stu_name=stu_name).delete()
+        courses = course.split(',')
+        courses.remove(course_id)
+        new_stu_course = ''
+        for c in courses:
+            new_stu_course = new_stu_course + c + ','
+        new_stu_course = new_stu_course[:-1]
+        stu = StudentInfo(stu_id=stu_id, stu_name=stu_name, stu_pwd=pwd, stu_email=email, stu_role=role,
+                              stu_course=new_stu_course)
+        stu.save()
+    return render(request,'finish_drop.html',context={'course':course_id})
 
+def update_view(request, user_name):
+    for user in StudentInfo.objects.all():
+        if user.stu_name == user_name:
+            break
+    course = user.stu_course
+    marks = []
+    for mark in Studentmark.objects.all():
+        if mark.course_id == course:
+            marks.append(mark)
+    return render(request, "update_accdemic_record.html",context={'marks':marks})
 
+def Toupdate_view(request, user_name):
+    for user in StudentInfo.objects.all():
+        if user.stu_name == user_name:
+            break
+    course = user.stu_course
+    for mark in Studentmark.objects.all():
+        if mark.course_id == course:
+            a_1 = request.POST.get(mark.stu_name + "a1", '')
+            a_2 = request.POST.get(mark.stu_name + "a2", '')
+            a_3 = request.POST.get(mark.stu_name + "a3", '')
+            a_4 = request.POST.get(mark.stu_name + "a4", '')
+            a_5 = request.POST.get(mark.stu_name + "a5", '')
+            a_6 = request.POST.get(mark.stu_name + "a6", '')
+            flag1,flag2,flag3,flag4,flag5,flag6 = 0,0,0,0,0,0
+            if not a_1:
+                a_1 = '0'
+            if not a_2:
+                a_2 = '0'
+            if not a_3:
+                a_3 = '0'
+            if not a_4:
+                a_4 = '0'
+            if not a_5:
+                a_5 = '0'
+            if not a_6:
+                a_6 = '0'
+            if a_1 != mark.assignment_1:
+                flag1 = 1
+            if a_2 != mark.assignment_2:
+                flag2 = 1
+            if a_3 != mark.assignment_3:
+                flag3 = 1
+            if a_4 != mark.assignment_4:
+                flag4 = 1
+            if a_5 != mark.assignment_5:
+                flag5 = 1
+            if a_6 != mark.assignment_6:
+                flag6 = 1
+            if flag1 or flag2 or flag3 or flag4 or flag5 or flag6:
+                mark_id = mark.mark_id
+                stu_name = mark.stu_name
+                stu_id = mark.stu_id
+                Studentmark.objects.get(mark_id=mark_id).delete()
+                new_mark = Studentmark(mark_id=mark_id,stu_id=stu_id,stu_name=stu_name,course_id=course,assignment_1=a_1,assignment_2=a_2,assignment_3=a_3,assignment_4=a_4,assignment_5=a_5,assignment_6=a_6)
+                new_mark.save()
+
+    return render(request, 'finish_update.html', context={'course':course})
