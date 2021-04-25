@@ -34,7 +34,7 @@
       </div>
     </div>
   </nav>
-
+<form action="../todrop/" method="post">
 <table border="1">
     <thead>
     <tr>
@@ -52,11 +52,17 @@
         <td>{{ course.course_instructor }}</td>
         <td>{{ course.course_description }}</td>
         <td>
-            <button type="button" style="color: white; background-color: red;border-color: red">Drop</button>
+            <input type="radio" name="course" value={{ course.course_id }}>Drop this course<br>
         </td>
     </tr>
     {% endfor %}
 </table>
+  <p></p>
+<div style="text-align:center">
+    <input  class="btn btn-success" type="submit" value="Confirm">
+</div>
+<p></p>
+</form>
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">

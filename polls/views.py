@@ -132,6 +132,47 @@ def add_view(request, user_name):
             courses.append(course)
     return render(request, 'add.html', context={'user': user, 'courses': courses})
 
+def Toadd_view(request, user_name):
+    course_id = request.POST.get("course",'')
+    if course_id:
+        for user in StudentInfo.objects.all():
+            if user.stu_name == user_name:
+                break
+        stu_id = user.stu_id
+        stu_name = user.stu_name
+        pwd = user.stu_pwd
+        role = user.stu_role
+        email = user.stu_email
+        course = user.stu_course
+        StudentInfo.objects.get(stu_name=stu_name).delete()
+        new_stu_course = course + ',' + course_id
+        stu = StudentInfo(stu_id=stu_id, stu_name=stu_name, stu_pwd=pwd, stu_email=email, stu_role=role,
+                              stu_course=new_stu_course)
+        stu.save()
+    return render(request,'finish_add.html',context={'course':course_id})
 
+def Todrop_view(request, user_name):
+    course_id = request.POST.get("course",'')
+    if course_id:
+        for user in StudentInfo.objects.all():
+            if user.stu_name == user_name:
+                break
+        stu_id = user.stu_id
+        stu_name = user.stu_name
+        pwd = user.stu_pwd
+        role = user.stu_role
+        email = user.stu_email
+        course = user.stu_course
+        StudentInfo.objects.get(stu_name=stu_name).delete()
+        courses = course.split(',')
+        courses.remove(course_id)
+        new_stu_course = ''
+        for c in courses:
+            new_stu_course = new_stu_course + c + ','
+        new_stu_course = new_stu_course[:-1]
+        stu = StudentInfo(stu_id=stu_id, stu_name=stu_name, stu_pwd=pwd, stu_email=email, stu_role=role,
+                              stu_course=new_stu_course)
+        stu.save()
+    return render(request,'finish_drop.html',context={'course':course_id})
 
 

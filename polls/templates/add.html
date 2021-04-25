@@ -34,7 +34,7 @@
       </div>
     </div>
   </nav>
-
+<form action="../toadd/" method="post">
 <table border="1">
     <thead>
     <tr>
@@ -52,11 +52,24 @@
         <td>{{ course.course_instructor }}</td>
         <td>{{ course.course_description }}</td>
         <td>
-            <button type="button" style="color: white; background-color: green;border-color: green">Add</button>
+            <input type="radio" name="course" value={{ course.course_id }}>Add this course<br>
         </td>
     </tr>
     {% endfor %}
 </table>
+<p></p>
+<div style="text-align:center">
+    <input  class="btn btn-success" type="submit" value="Confirm">
+</div>
+<p></p>
+</form>
+  {% if messages %}
+      <script>
+          {% for msg in messages %}
+              alert('{{ msg.message }}');
+          {% endfor %}
+      </script>
+  {% endif %}
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
