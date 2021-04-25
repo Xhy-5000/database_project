@@ -75,7 +75,7 @@ def register_view(request):
             stu = StudentInfo(stu_id=stu_id,stu_name=user,stu_pwd=pwd,stu_email=email,stu_course=course,stu_role=stu_role)
             stu.save()
             # messages.success(request, 'Success')
-            return render(request, 'login.html')
+            return render(request, 'finish_register.html')
     else:
         # messages.success(request, "Lack of some information")
         return render(request, 'register.html')
@@ -101,10 +101,11 @@ def Rewrite_view(request, link):
                           stu_course=course)
         stu.save()
         # messages.success(request, "Success")
-        if stu.stu_role == '0':
-            return render(request, 'studentindex.html', context={'student': stu, 'link': link})
-        elif stu.stu_role == '1':
-            return render(request, 'teacherindex.html', context={'teacher': stu, 'link': link})
+        # if stu.stu_role == '0':
+        #     return render(request, 'studentindex.html', context={'student': stu, 'link': link})
+        # elif stu.stu_role == '1':
+        #     return render(request, 'teacherindex.html', context={'teacher': stu, 'link': link})
+        return render(request, 'finish_rewrite.html', context={'link':link})
     else:
         messages.success(request, "Lack of some information")
         return render(request, 'rewriteinfo.html', context= {'link':link})
