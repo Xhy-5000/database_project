@@ -130,6 +130,7 @@ def drop_view(request, user_name):
     return render(request, 'drop.html', context={'user':user, 'courses':courses})
 
 def add_view(request, user_name):
+
     for user in StudentInfo.objects.all():
         if user.stu_name == user_name:
             break
@@ -139,6 +140,19 @@ def add_view(request, user_name):
         if course.course_id not in courses_ids:
             courses.append(course)
     return render(request, 'add.html', context={'user': user, 'courses': courses})
+
+
+def stu_showCourses_view(request, user_name):
+    for user in StudentInfo.objects.all():
+        if user.stu_name == user_name:
+            break
+    courses_ids = user.stu_course.split(',')
+    courses = []
+    for course in CourseInfo.objects.all():
+        if course.course_id in courses_ids:
+            courses.append(course)
+    return render(request, 'stu_showCourses.html', context={'user':user, 'courses':courses})
+
 
 def Toadd_view(request, user_name):
     course_id = request.POST.get("course",'')

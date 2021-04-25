@@ -18,4 +18,5 @@ urlpatterns = [
     path('rewriteinfo/<str:link>/', views.Rewrite_view),
     path('toregister/', views.toregister_view),
     path('register/', views.register_view),
+    path('index/<str:user_name>/stu_showCourses/', views.stu_showCourses_view),
 ]
