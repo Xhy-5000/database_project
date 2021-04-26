@@ -21,12 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8af7ece8-df92-4880-834b-23ace4bb6325" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polls/templates/show_academic.html" beforeDir="false" afterPath="$PROJECT_DIR$/polls/templates/show_academic.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polls/templates/show_courses.html" beforeDir="false" afterPath="$PROJECT_DIR$/polls/templates/show_courses.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polls/templates/studentindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/polls/templates/studentindex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polls/templates/studentindex0.html" beforeDir="false" afterPath="$PROJECT_DIR$/polls/templates/studentindex0.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polls/templates/teacherindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/polls/templates/teacherindex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polls/templates/teacherindex0.html" beforeDir="false" afterPath="$PROJECT_DIR$/polls/templates/teacherindex0.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/init_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/init_db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/init_insert.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/init_mark.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/polls/images/8.png" beforeDir="false" afterPath="$PROJECT_DIR$/polls/images/8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polls/images/9.png" beforeDir="false" afterPath="$PROJECT_DIR$/polls/images/9.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +57,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
     <configuration name="database_project" type="Python.DjangoServer" factoryName="Django server">
@@ -103,7 +104,8 @@
       <workItem from="1619365573888" duration="389000" />
       <workItem from="1619365973016" duration="219000" />
       <workItem from="1619366200977" duration="252000" />
-      <workItem from="1619367205973" duration="2165000" />
+      <workItem from="1619367205973" duration="2766000" />
+      <workItem from="1619398631023" duration="2227000" />
     </task>
     <servers />
   </component>

@@ -37,14 +37,13 @@ The username is their name and password for everyone is 'csc3170'.
 
 #### Example usernames:  
 student
-> * Andy Xia
-> * Dodo Xia
-> * Alex Li
-> * Arthur Li
+> * AndyXia
+> * DodoXia
+> * AlexLi
+> * ArthurLi
 
 teacher
-> * Donald Trump
-> * Borris Johnson
+> * AlanTuring
 
 ## Presentation
 #### Home Page
@@ -57,5 +56,11 @@ teacher
 ![code_image](./polls/images/7.png)
 #### Student Page
 ![code_image](./polls/images/8.png)
-#### Teacher Page
 ![code_image](./polls/images/9.png)
+![code_image](./polls/images/10.png)
+![code_image](./polls/images/11.png)
+![code_image](./polls/images/12.png)
+![code_image](./polls/images/13.png)
+![code_image](./polls/images/14.png)
+#### Teacher Page
+![code_image](./polls/images/15.png)
