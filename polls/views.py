@@ -293,3 +293,33 @@ def show_courses_view(request, user_name):
         if course.course_id in courses_ids:
             courses.append(course)
     return render(request, 'show_courses.html', context={'user':user, 'courses':courses})
+
+def Toquery_view(request, user_name):
+    return render(request, 'query.html')
+
+def query_view(request, user_name):
+    stu_name = request.POST.get('stu_name','')
+    a = request.POST.get('a', '')
+
+    for user in StudentInfo.objects.all():
+        if user.stu_name == user_name:
+            break
+    for mark in Studentmark.objects.all():
+        if mark.course_id==user.stu_course and mark.stu_name==stu_name:
+            break
+
+    if a == 'assignment1':
+        score = mark.assignment_1
+    elif a == 'assignment2':
+        score = mark.assignment_2
+    elif a == 'assignment3':
+        score = mark.assignment_3
+    elif a == 'assignment4':
+        score = mark.assignment_4
+    elif a == 'assignment5':
+        score = mark.assignment_5
+    elif a == 'assignment6':
+        score = mark.assignment_6
+    else:
+        score = 'something wrong'
+    return render(request, 'finish_query.html',context={'name':stu_name, 'num':a, 'score':score})

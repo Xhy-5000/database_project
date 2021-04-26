@@ -7,15 +7,31 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Update accdemic record</title>
+  <title>Add Courses</title>
 
   <!-- Bootstrap core CSS -->
   <link href="../../../static/info/bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="../../../static/info/bootstrap/css/heroic-features.css" rel="stylesheet">
-  <!-- Custom styles for this template -->
-  <link href="../../../static/info/bootstrap/css/new_table.css" rel="stylesheet">
+
+    <link href="../../../static/info/bootstrap/css/new_table.css" rel="stylesheet">
+<style>
+    .main{
+    text-align: center; /*让div内部文字居中*/
+    background-color: #fff;
+    border-radius: 20px;
+    width: 300px;
+    height: 350px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+</style>
 
 
 </head>
@@ -37,56 +53,24 @@
       </div>
     </div>
   </nav>
-<form action="../toupdate/" method="post">
-<table border="1">
-    <thead>
-    <tr style="align: center">
-        <th>student  id</th>
-        <th>student  name</th>
-        <th>grade 1</th>
-        <th>grade 2</th>
-        <th>grade 3</th>
-        <th>grade 4</th>
-        <th>grade 5</th>
-        <th>grade 6</th>
-{#        <th>operation</th>#}
-    </tr>
-    </thead>
-    {% for mark in marks %}
-    <tr>
-        <td>
-            {{ mark.stu_id }}
-        </td>
-        <td>
-            {{ mark.stu_name }}
-        </td>
-        <td>
-            <input name="{{ mark.stu_name }}a1" value={{ mark.assignment_1}}>
-        </td>
-        <td>
-            <input name="{{ mark.stu_name }}a2" value={{ mark.assignment_2 }}>
-        </td>
-        <td>
-            <input name="{{ mark.stu_name }}a3" value={{ mark.assignment_3 }}>
-        </td>
-        <td>
-            <input name="{{ mark.stu_name }}a4" value={{ mark.assignment_4}}>
-        </td>
-        <td>
-            <input name="{{ mark.stu_name }}a5" value={{ mark.assignment_5 }}>
-        </td>
-        <td>
-            <input name="{{ mark.stu_name }}a6" value={{ mark.assignment_6 }}>
-        </td>
-{#        <td><input  class="btn btn-success" type="submit" value="Confirm"></td>#}
-    </tr>
-    {% endfor %}
-</table>
-<br>
-    <div style="text-align:center">
-        <input  class="btn btn-success" type="submit" value="Confirm">
-    </div><br>
-</form>
+  <div class = "main">
+<form action="../getqueryresult/" method="post">
+        <p>Student name:</p>
+        <input name="stu_name">
+        <p>assignment number:</p>
+        <input type="radio" name="a" value="assignment1">assignment1<br>
+        <input type="radio" name="a" value="assignment2">assignment2<br>
+        <input type="radio" name="a" value="assignment3">assignment3<br>
+        <input type="radio" name="a" value="assignment4">assignment4<br>
+        <input type="radio" name="a" value="assignment5">assignment5<br>
+        <input type="radio" name="a" value="assignment6">assignment6<br>
+        <p></p>
+        <div style="text-align:center">
+            <input  class="btn btn-success" type="submit" value="Confirm">
+        </div>
+    </form>
+
+  </div>
   {% if messages %}
       <script>
           {% for msg in messages %}

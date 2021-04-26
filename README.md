@@ -61,6 +61,8 @@ teacher
 ![code_image](./polls/images/11.png)
 ![code_image](./polls/images/12.png)
 ![code_image](./polls/images/13.png)
-![code_image](./polls/images/14.png)
+
 #### Teacher Page
 ![code_image](./polls/images/15.png)
+![code_image](./polls/images/14.png)
+![code_image](./polls/images/16.png)

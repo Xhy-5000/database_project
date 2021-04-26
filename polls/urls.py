@@ -14,6 +14,8 @@ urlpatterns = [
     # path('t_index/<str:user_name>/', views.teacher_view),
     path('index/<str:user_name>/update/', views.update_view),
     path('index/<str:user_name>/toupdate/', views.Toupdate_view),
+    path('index/<str:user_name>/getqueryresult/', views.query_view),
+    path('index/<str:user_name>/toquery/', views.Toquery_view),
     path('torewriteinfo/<str:link>/', views.toRewrite_view),
     path('rewriteinfo/<str:link>/', views.Rewrite_view),
     path('toregister/', views.toregister_view),
