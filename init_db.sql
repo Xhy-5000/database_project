@@ -69,21 +69,21 @@ create table polls_studentmark(
     assignment_6 varchar(20));
 
 use stu_info;
-INSERT INTO `stu_info`.`polls_studentmark` (`mark_id`,`stu_id`, `stu_name`, `course_id`, `assignment_1`, `assignment_2`, `assignment_3`, `assignment_4`, `assignment_5`, `assignment_6`) VALUES ('001','001', 'AndyXia', 'csc3170', '100','100', '100','100', '100','100');
-INSERT INTO `stu_info`.`polls_studentmark` (`mark_id`,`stu_id`, `stu_name`, `course_id`, `assignment_1`, `assignment_2`, `assignment_3`, `assignment_4`, `assignment_5`, `assignment_6`) VALUES ('002','001', 'AndyXia', 'csc4150', '100','100', '100','100', '100','100');
-INSERT INTO `stu_info`.`polls_studentmark` (`mark_id`,`stu_id`, `stu_name`, `course_id`, `assignment_1`, `assignment_2`, `assignment_3`, `assignment_4`, `assignment_5`, `assignment_6`) VALUES ('003','001', 'AndyXia', 'csc4008', '100','100', '100','100', '100','100');
-INSERT INTO `stu_info`.`polls_studentmark` (`mark_id`,`stu_id`, `stu_name`, `course_id`, `assignment_1`, `assignment_2`, `assignment_3`, `assignment_4`, `assignment_5`, `assignment_6`) VALUES ('004','001', 'AndyXia', 'mat3007', '100','100', '100','100', '100','100');
+INSERT INTO `stu_info`.`polls_studentmark` (`mark_id`,`stu_id`, `stu_name`, `course_id`, `assignment_1`, `assignment_2`, `assignment_3`, `assignment_4`, `assignment_5`, `assignment_6`) VALUES ('AndyXiacsc3170','001', 'AndyXia', 'csc3170', '100','100', '100','100', '100','100');
+INSERT INTO `stu_info`.`polls_studentmark` (`mark_id`,`stu_id`, `stu_name`, `course_id`, `assignment_1`, `assignment_2`, `assignment_3`, `assignment_4`, `assignment_5`, `assignment_6`) VALUES ('AndyXiacsc4150','001', 'AndyXia', 'csc4150', '100','100', '100','100', '100','100');
+INSERT INTO `stu_info`.`polls_studentmark` (`mark_id`,`stu_id`, `stu_name`, `course_id`, `assignment_1`, `assignment_2`, `assignment_3`, `assignment_4`, `assignment_5`, `assignment_6`) VALUES ('AndyXiacsc4008','001', 'AndyXia', 'csc4008', '100','100', '100','100', '100','100');
+INSERT INTO `stu_info`.`polls_studentmark` (`mark_id`,`stu_id`, `stu_name`, `course_id`, `assignment_1`, `assignment_2`, `assignment_3`, `assignment_4`, `assignment_5`, `assignment_6`) VALUES ('AndyXiamat3007','001', 'AndyXia', 'mat3007', '100','100', '100','100', '100','100');
 
 
-INSERT INTO `stu_info`.`polls_studentmark` (`mark_id`,`stu_id`, `stu_name`, `course_id`, `assignment_1`, `assignment_2`, `assignment_3`, `assignment_4`, `assignment_5`, `assignment_6`) VALUES ('005','002', 'DodoXia', 'csc3170', '100','100', '100','100', '100','100');
-INSERT INTO `stu_info`.`polls_studentmark` (`mark_id`,`stu_id`, `stu_name`, `course_id`, `assignment_1`, `assignment_2`, `assignment_3`, `assignment_4`, `assignment_5`, `assignment_6`) VALUES ('006','002', 'DodoXia', 'csc4150', '100','100', '100','100', '100','100');
-INSERT INTO `stu_info`.`polls_studentmark` (`mark_id`,`stu_id`, `stu_name`, `course_id`, `assignment_1`, `assignment_2`, `assignment_3`, `assignment_4`, `assignment_5`, `assignment_6`) VALUES ('007','002', 'DodoXia', 'eco2011', '100','100', '100','100', '100','100');
+INSERT INTO `stu_info`.`polls_studentmark` (`mark_id`,`stu_id`, `stu_name`, `course_id`, `assignment_1`, `assignment_2`, `assignment_3`, `assignment_4`, `assignment_5`, `assignment_6`) VALUES ('DodoXiacsc3170','002', 'DodoXia', 'csc3170', '100','100', '100','100', '100','100');
+INSERT INTO `stu_info`.`polls_studentmark` (`mark_id`,`stu_id`, `stu_name`, `course_id`, `assignment_1`, `assignment_2`, `assignment_3`, `assignment_4`, `assignment_5`, `assignment_6`) VALUES ('DodoXiacsc4150','002', 'DodoXia', 'csc4150', '100','100', '100','100', '100','100');
+INSERT INTO `stu_info`.`polls_studentmark` (`mark_id`,`stu_id`, `stu_name`, `course_id`, `assignment_1`, `assignment_2`, `assignment_3`, `assignment_4`, `assignment_5`, `assignment_6`) VALUES ('DodoXiaeco2011','002', 'DodoXia', 'eco2011', '100','100', '100','100', '100','100');
 
-INSERT INTO `stu_info`.`polls_studentmark` (`mark_id`,`stu_id`, `stu_name`, `course_id`, `assignment_1`, `assignment_2`, `assignment_3`, `assignment_4`, `assignment_5`, `assignment_6`) VALUES ('008','003', 'AlexLi', 'csc3170', '100','100', '100','100', '100','100');
-INSERT INTO `stu_info`.`polls_studentmark` (`mark_id`,`stu_id`, `stu_name`, `course_id`, `assignment_1`, `assignment_2`, `assignment_3`, `assignment_4`, `assignment_5`, `assignment_6`) VALUES ('009','003', 'AlexLi', 'csc4001', '100','100', '100','100', '100','100');
+INSERT INTO `stu_info`.`polls_studentmark` (`mark_id`,`stu_id`, `stu_name`, `course_id`, `assignment_1`, `assignment_2`, `assignment_3`, `assignment_4`, `assignment_5`, `assignment_6`) VALUES ('AlexLicsc3170','003', 'AlexLi', 'csc3170', '100','100', '100','100', '100','100');
+INSERT INTO `stu_info`.`polls_studentmark` (`mark_id`,`stu_id`, `stu_name`, `course_id`, `assignment_1`, `assignment_2`, `assignment_3`, `assignment_4`, `assignment_5`, `assignment_6`) VALUES ('AlexLicsc4001','003', 'AlexLi', 'csc4001', '100','100', '100','100', '100','100');
 
-INSERT INTO `stu_info`.`polls_studentmark` (`mark_id`,`stu_id`, `stu_name`, `course_id`, `assignment_1`, `assignment_2`, `assignment_3`, `assignment_4`, `assignment_5`, `assignment_6`) VALUES ('010','004', 'ArthurLi', 'csc3170', '100','100', '100','100', '100','100');
-INSERT INTO `stu_info`.`polls_studentmark` (`mark_id`,`stu_id`, `stu_name`, `course_id`, `assignment_1`, `assignment_2`, `assignment_3`, `assignment_4`, `assignment_5`, `assignment_6`) VALUES ('011','004', 'ArthurLi', 'csc4001', '100','100', '100','100', '100','100');
+INSERT INTO `stu_info`.`polls_studentmark` (`mark_id`,`stu_id`, `stu_name`, `course_id`, `assignment_1`, `assignment_2`, `assignment_3`, `assignment_4`, `assignment_5`, `assignment_6`) VALUES ('ArthurLicsc3170','004', 'ArthurLi', 'csc3170', '100','100', '100','100', '100','100');
+INSERT INTO `stu_info`.`polls_studentmark` (`mark_id`,`stu_id`, `stu_name`, `course_id`, `assignment_1`, `assignment_2`, `assignment_3`, `assignment_4`, `assignment_5`, `assignment_6`) VALUES ('ArthurLicsc4001','004', 'ArthurLi', 'csc4001', '100','100', '100','100', '100','100');
 
 
 select * from polls_studentmark;

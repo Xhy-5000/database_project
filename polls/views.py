@@ -180,6 +180,9 @@ def Toadd_view(request, user_name):
         stu = StudentInfo(stu_id=stu_id, stu_name=stu_name, stu_pwd=pwd, stu_email=email, stu_role=role,
                               stu_course=new_stu_course)
         stu.save()
+        mark_id = stu_name + course_id
+        new_mark = Studentmark(mark_id=mark_id,stu_id=stu_id,stu_name=stu_name,course_id=course_id,assignment_1='0',assignment_2='0',assignment_3='0',assignment_4='0',assignment_5='0',assignment_6='0')
+        new_mark.save()
     return render(request,'finish_add.html',context={'course':course_id})
 
 def Todrop_view(request, user_name):
@@ -204,6 +207,8 @@ def Todrop_view(request, user_name):
         stu = StudentInfo(stu_id=stu_id, stu_name=stu_name, stu_pwd=pwd, stu_email=email, stu_role=role,
                               stu_course=new_stu_course)
         stu.save()
+        mark_id = stu_name + course_id
+        Studentmark.objects.get(mark_id=mark_id).delete()
     return render(request,'finish_drop.html',context={'course':course_id})
 
 def update_view(request, user_name):
