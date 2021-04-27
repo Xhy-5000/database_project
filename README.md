@@ -2,6 +2,7 @@ Database_project
 ====
 A student manage system base on django and mysql.
 This project is done by five students in CUHKSZ.
+You can get access to the whole project code from **https://github.com/Xhy-5000/database_project**
 ## Installation
 
 Python and Django need to be installed

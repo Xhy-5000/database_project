@@ -22,6 +22,15 @@
     <list default="true" id="8af7ece8-df92-4880-834b-23ace4bb6325" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polls/images/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/polls/images/2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polls/templates/caogao.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/polls/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/polls/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polls/templates/left_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/polls/templates/left_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/polls/templates/left_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/polls/templates/left_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/polls/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/polls/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polls/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/polls/templates/register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +124,8 @@
       <workItem from="1619365973016" duration="219000" />
       <workItem from="1619366200977" duration="252000" />
       <workItem from="1619367205973" duration="2766000" />
-      <workItem from="1619398631023" duration="16013000" />
+      <workItem from="1619398631023" duration="18153000" />
+      <workItem from="1619490191638" duration="1774000" />
     </task>
     <servers />
   </component>
